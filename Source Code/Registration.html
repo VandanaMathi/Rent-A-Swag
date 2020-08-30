@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Registration-Login</title>
+        <link rel="stylesheet" href="Style.css">
+    </head>
+    <body>
+        <center>
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div> 
+                        <button type="button" class="toggle-btn" onclick="login()"><b>Log In</b></button>
+                        <button type="button" class="toggle-btn" onclick="signup()"><b>Register</b></button>
+                </div>
+                <form class="input-group" id="login">
+                    <img src="user.jpg"><br><br><br>
+                    <input type="email" class="input-field" placeholder="Email/Username" required><br><br><br>
+                    <input type="password" class="input-field" placeholder="Password"required><br><br><br><br>
+                    <button type="submit" class="submit-btn"><b>Log In</b></button>
+                </form>
+                <form class="input-group" id="signup">
+                    <input type="text" class="input-field" id="name" placeholder="First Name" required>
+                    <input type="text" class="input-field"  id="name" placeholder="Last Name" required><br><br>
+                    <input type="email" class="input-field" placeholder="Email" required><br><br>
+                    <input type="password" class="input-field" placeholder="Password*" pattern="(?=.*\d).{8,}" required><br><br>
+                    <input type="tel" class="input-field" placeholder="Phone Number" required><br><br><br>
+                    <button type="submit" class="submit-btn"><b>Sign Up</b></button><br><br>
+                    <span><i>*Password must contain at least 8 characters and a number</i></span>
+                </form>
+
+            </div>
+        <script>
+            var x=document.getElementById("login");
+            var y=document.getElementById("signup");
+            var z=document.getElementById("btn");
+
+            function signup()
+            {
+                x.style.left="-400px";
+                y.style.left="50px";
+                z.style.left="110px";
+            }
+            
+            function login()
+            {
+                x.style.left="50px";
+                y.style.left="450px";
+                z.style.left="0px";
+            }
+        </script>
+
+    </center>
+    </body>
+</html>

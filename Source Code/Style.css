@@ -1,6 +1,5 @@
 *{
     margin:0px;
-    padding:0px;
 }
 .form-box
 {
@@ -8,46 +7,20 @@
     height: 550px;
     position: relative;
     top:40px;
-    right:-450px;
     background-color: black;
     padding: 10px 5px; 
-    overflow: hidden;           /*hide the next register*/
-}
-.button-box
-{
-    width:220px;
-    margin:35px auto;
-    position: relative;
-    box-shadow: 0 0 30px 1px orangered ; 
-    border-radius: 40px;
-}
-.toggle-btn
-{
-    padding: 10px 30px;
-    cursor: pointer;
-    background:transparent;
-    border:0px;
-    outline:none;
-    position: relative;
-    color:white;
-}
-#btn
-{
-    top:0;
-    left:0px;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    background:linear-gradient(to right,#fe8c00,#f80800);
-    border-radius: 30px;
-    transition: 0.2s;
 }
 .input-group
 {
-    top: 120px;
+    top: 110px;
     position: absolute;
     width: 300px;
-    transition: 0.2s;
+}
+p
+{
+    color:white;
+    font-size:15px;
+    font-family:'Lucida Sans';
 }
 .input-field
 {
@@ -71,38 +44,22 @@
     width:100%;
     padding: 10px 30px;
     cursor: pointer;
-    display: block;
     margin:auto;
-    background:linear-gradient(to right,#fe8c00,#f80800);
-    border 0;
+    background:linear-gradient(to right,#fe8c00,#f80800);   /* Linear Gradient gives differetn based on direction*/
+    border:0; 
     outline: none;
     border: none;
     border-radius: 30px;
     color:white;
 }
-#login
+#pos
 {
     left:50px;
 }
-#signup
+h1
 {
-    left:450px;
-    top:130px;
-}
-#name
-{
-    width:46%;
-    margin-right:9px;
-}
-span
-{
-    color:rgb(0, 119, 255);
-    font-size: 17px;
-    position: absolute;
-    left:-20px;
-}
-img
-{
-    border-radius:65px;
-    height:130px;
+    color:yellow;
+    font-size: 28px;
+    margin-top: 30px;
+    font-family: 'Lucida Sans';
 }

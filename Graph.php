@@ -1,5 +1,20 @@
 <?php
 # ------- The graph values in the form of associative array
+define('DB_SERVER','localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'test'); //database name  
+$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+if($db)
+{
+    $sql="Select monthname(sdate) as Month,sum(price) as Price from sales group by year(sdate),month(sdate) order by year(sdate),month(sdate)";
+    $result=mysqli_query($db,$sql);
+    $rowcount=mysqli_num_rows($result);
+    if($rowcount)
+        while ($row = mysqli_fetch_array($result)) 
+            $values[substr($row['Month'],0,3)]=$row['Price'];
+}
+/*                
 $values=array(
     "Jan" => 120,
     "Feb" => 130,
@@ -14,6 +29,7 @@ $values=array(
     "Nov" => 150,
     "Dec" => 196
 );
+*/
 $img_width=450;
 $img_height=300; 
 $margins=20;

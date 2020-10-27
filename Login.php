@@ -24,7 +24,7 @@ include("dbconfig.php")
             <div class="form-box">
                 <h1>USER LOGIN</h1>
                 <form class="input-group" method="POST" id="pos">
-                    <img src="user.jpg"><br><br><br>
+                    <img src="Images/user.jpg"><br><br><br>
                     <input type="text" class="input-field" placeholder="Username" name="user" required><br><br><br>
                     <input type="password" class="input-field" placeholder="Password" name="pass" required><br><br><br><br>
                     <button type="submit" class="submit-btn" name="sub"><b>Log In</b></button><br><br>;
@@ -51,7 +51,9 @@ include("dbconfig.php")
                                 {
                                     //header("Location:.php");
                                     echo "<script>window.alert('Success');</script>";
+                                    $_SESSION['username']=$username;
                                     mysqli_close($con);
+                                    header("location:index.php");
                                 }
                             }
                         else

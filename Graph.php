@@ -14,22 +14,6 @@ if($db)
         while ($row = mysqli_fetch_array($result)) 
             $values[substr($row['Month'],0,3)]=$row['Price'];
 }
-/*                
-$values=array(
-    "Jan" => 120,
-    "Feb" => 130,
-    "Mar" => 215,
-    "Apr" => 81,
-    "May" => 310,
-    "Jun" => 110,
-    "Jul" => 190,
-    "Aug" => 175,
-    "Sep" => 390,
-    "Oct" => 286,
-    "Nov" => 150,
-    "Dec" => 196
-);
-*/
 $img_width=450;
 $img_height=300; 
 $margins=20;

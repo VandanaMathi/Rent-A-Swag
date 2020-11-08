@@ -66,8 +66,8 @@
                     <label style="font-size:23px;">Date: </label>
                     <input type="date" id="search" placeholder="Search..." name="date">
                     <button style="font-size:20px" type="submit" name="sub1"><i class="fa fa-search" style="color:white"></i></button><br><br>
-                    <label style="font-size:23px">Type:  </label>
-                    <input type="text" id="search" placeholder="Search..." name="type">
+                    <label style="font-size:23px">User:  </label>
+                    <input type="text" id="search" placeholder="Search..." name="user">
                     <button style="font-size:20px" type="submit" name="sub2"><i class="fa fa-search" style="color:white"></i></button><br><br><br>
                     <input type="submit" value="VIEW ALL" class="but" name="sub3">&nbsp;&nbsp;
                     <input type="submit" value="MOST RECENT" class="but" name="sub4">
@@ -77,7 +77,7 @@
                 define('DB_SERVER','localhost');
                 define('DB_USERNAME', 'root');
                 define('DB_PASSWORD', '');
-                define('DB_DATABASE', ''); //database name  
+                define('DB_DATABASE', 'test'); //database name  
                 if(isset($_POST["sub3"]))
                 {
                     $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
@@ -89,10 +89,10 @@
                         if($rowcount)
                         {
                             echo "<br><br><table border='1' style='border-collapse:collapse'>";
-                            echo "<tr><th>S.no</th><th>Fname</th><th>Lname</th><th>Username</th><th>Email</th><th>Phone</th></tr>";
+                            echo "<tr><th>S.no</th><th>Date</th><th>Price</th></tr>";
                             while ($row = mysqli_fetch_array($result)) 
                             {
-                                echo "<tr><td>".$row['id']."</td><td>".$row['Fname']."</td><td>".$row['Lname']."</td><td>".$row['Username']."</td><td>".$row['Email']."</td><td>".$row['Phone']."</td></tr>";
+                                echo "<tr><td>".$row['id']."</td><td>".$row['sdate']."</td><td>".$row['price']."</td></tr>";
                             }
                             echo "</table>";
                         }
@@ -105,12 +105,13 @@
                     {
                         $sql="Select * from sales order by id DESC LIMIT 1";
                         $result=mysqli_query($db,$sql);
+                        $c=1;
                         if($result)
                         {
                             echo "<br><br><table border='1' style='border-collapse:collapse'>";
-                            echo "<tr><th>S.no</th><th>Fname</th><th>Lname</th><th>Username</th><th>Email</th><th>Phone</th></tr>";
+                            echo "<tr><th>S.no</th><th>Date</th><th>Price</th></tr>";
                             if($row = mysqli_fetch_row($result)) 
-                                echo "<tr><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td></tr>";
+                                echo "<tr><td>".$c."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";
                             echo "</table>";
                         }
                     }
@@ -120,16 +121,16 @@
                     $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
                     if($db)
                     {
-                        $type=$_POST['type'];
-                        $sql="Select * from sales where type='$type'";
+                        $user=$_POST['user'];
+                        $sql="Select * from sales where uid='$user'";
                         $result=mysqli_query($db,$sql);
                         $rowcount=mysqli_num_rows($result);
                         if($rowcount)
                         {
                             echo "<br><br><table border='1' style='border-collapse:collapse'>";
-                            echo "<tr><th>S.no</th><th>Fname</th><th>Lname</th><th>Username</th><th>Email</th><th>Phone</th></tr>";
+                            echo "<tr><th>S.no</th><th>Date</th><th>Price</th></tr>";
                             while($row=mysqli_fetch_array($result))
-                                echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td></tr>";                       
+                                echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";                       
                         }
                     }
                 }
@@ -139,15 +140,19 @@
                     if($db)
                     {
                         $date=$_POST['date'];
-                        $sql="Select * from user where date='$date'";
+                        $sql="Select * from sales where sdate='$date'";
                         $result=mysqli_query($db,$sql);
                         $rowcount=mysqli_num_rows($result);
+                        $c=1;
                         if($rowcount)
                         {
                             echo "<br><br><table border='1' style='border-collapse:collapse'>";
-                            echo "<tr><th>S.no</th><th>Fname</th><th>Lname</th><th>Username</th><th>Email</th><th>Phone</th></tr>";
+                            echo "<tr><th>S.no</th><th>Date</th><th>Price</th></tr>";
                             while($row=mysqli_fetch_array($result))
-                                echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td></tr>";                       
+                            {
+                                echo "<tr><td>".$c."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";                       
+                                $c++;
+                            }
                         }
                     }
                 }
